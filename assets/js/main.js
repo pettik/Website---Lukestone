@@ -62,64 +62,6 @@ function scrollHeader() {
 }
 window.addEventListener('scroll', scrollHeader);
 
-/*=============== ENGETO FORM PASSWORD CHECK ===============*/
-const engetoForm = document.querySelector('.engeto__form');
-const logoEngeto = document.querySelector('.engeto__logo__image');
-const exitBtn = document.querySelector('#exit-btn');
-
-function hideFormToStart() {
-  engetoForm.classList.toggle('hideToRight');
-  engetoForm.classList.toggle('showed');
-}
-
-logoEngeto.addEventListener('click', () => {
-  hideFormToStart();
-});
-
-exitBtn.addEventListener('click', e => {
-  e.preventDefault();
-  hideFormToStart();
-});
-
-const pass1 = document.querySelector('#engeto__password1');
-const pass2 = document.querySelector('#engeto__password2');
-const passBtn = document.querySelector('#form-engeto button');
-const passMessage = document.querySelector('.password-message');
-
-function passwordPrepare(password) {
-  return password.trim();
-}
-
-function resetpassMessage() {
-  passMessage.classList.remove('wrong');
-  passMessage.classList.remove('correct');
-  passMessage.classList.add('invisible');
-  passMessage.innerHTML = '';
-}
-
-passBtn.addEventListener('click', e => {
-  e.preventDefault();
-  resetpassMessage();
-  if (
-    passwordPrepare(pass1.value) === '' ||
-    passwordPrepare(pass2.value) === ''
-  ) {
-    passMessage.classList.add('wrong');
-    passMessage.classList.remove('hidden');
-    passMessage.textContent = `Vyplňte obě hesla`;
-  } else {
-    passMessage.classList.remove('hidden');
-    if (passwordPrepare(pass1.value) === passwordPrepare(pass2.value)) {
-      passMessage.classList.add('correct');
-      passMessage.innerHTML = `<i class='bx bx-check-circle' ></i> Hesla se shodují`;
-    }
-    if (passwordPrepare(pass1.value) !== passwordPrepare(pass2.value)) {
-      passMessage.classList.add('wrong');
-      passMessage.innerHTML = `<i class='bx bxs-error'></i> Hesla se neshodují`;
-    }
-  }
-});
-
 /*=============== SHOW SCROLL UP ===============*/
 function scrollUp() {
   const scrollUp = document.getElementById('scroll-up');
