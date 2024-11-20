@@ -1287,7 +1287,7 @@ body.dark-theme .nav__toggle {
 
   .button.home-btn-up.button-flex.btn--white {
     display: inline-flex;
-    max-width: 200px;
+    width: 200px !important;
     position: relative;
     z-index: var(--z-tooptip2);
     margin-top: var(--mb-1-5);
